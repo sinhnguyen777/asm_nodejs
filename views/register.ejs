@@ -1,0 +1,47 @@
+<%- include('../views/header.ejs'); %>
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="/">Home</a>
+            <span class="breadcrumb-item active">Register</span>
+        </div>
+    </div>
+    <section class="static about-sec">
+        <div class="container">
+            <h1>My Account / REgister</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fiveLorem Ipsum is simply
+                dummy text of the printing and typesetting industry. Lorem </p>
+            <div class="form">
+                <form action="" method="POST">
+                    <div class="row ">
+                        <div class="col-md-12 d-flex justify-content-center">
+                            <div class="col-md-4 p-0 m-2">
+                                <input type="text" placeholder="Enter User Name" required>
+                                <span class="required-star">*</span>
+                            </div>
+                            <div class="col-md-4 p-0 m-2">
+                                <input type="email" placeholder="Email" required>
+                                <span class="required-star">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-center">
+                            <div class="col-md-4 p-0 m-2">
+                                <input type="password" placeholder="Password" required>
+                                <span class="required-star">*</span>
+                            </div>
+                            <div class="col-md-4 p-0 m-2">
+                                <input type="password" placeholder="Repeat Password" required>
+                                <span class="required-star">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-around">
+                            <div class="col-md-8 d-flex justify-content-center">
+                                <button class="btn black">Register</button>
+                                <h5>not Registered? <a href="/login">Login here</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <%- include('../views/footer.ejs'); %>
