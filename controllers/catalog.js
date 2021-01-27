@@ -1,17 +1,14 @@
 const bcrypt = require('bcrypt');
+const { render } = require('ejs');
 const Catalog = require('../models/catalog');
+const Product = require('../models/product');
+var products = [];
 
-exports.getCatalog = (req, res, next) => { 
-    const catalogs = Catalog.fetchAll_cata();
-    res.render('shop', {
-        catalogs:catalogs,
-    });
+
+exports.getAll = (req, res) => {
+
+
+    const products = Product.fetchProductCata();
+
+    res.render('shop', { products:products})
 }
-// exports.getCatalog = (req, res, next) => { 
-//     let idctl=req.params.idctl;
-//     const catalogs = Catalog.fetchId_Cata(idctl);
-//     res.render('shop', {
-//         catalogs:catalogs,
-//         catalogs:[]
-//     });
-// }

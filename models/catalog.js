@@ -1,6 +1,9 @@
 const Sequelize = require('sequelize');
 const db = require('./database');
-var catalogs=[];
+
+var catalogs = [];
+var products =[];
+var cate =[];
 
 module.exports = class Catalog {
     static fetchAll_cata() {    //trả về tất cả danh mục
@@ -8,19 +11,18 @@ module.exports = class Catalog {
         db.query(sql, function(err, data) {
             if (err) throw err;
             catalogs=data;
-            // console.log(catalog);
         });
         return catalogs;
     }
     
-    static fetchId_Cata() {
-        let idctl=req.params.idctl;
-        let sql = `SELECT * FROM product where idctl=${idctl};select * from catalog`;
-        db.query(sql, function(err, data) {
-            if (err) throw err;
-            catalogs=data;
-        });
-        return catalogs;
-    }
+    // static fetchAll() {
+        
+    //     let sql = `SELECT * FROM product `;
+    //     db.query(sql, function(err, data) {
+    //         if (err) throw err;
+    //         products=data;
+    //     });
+    //     return products;
+    // }
 
 }
