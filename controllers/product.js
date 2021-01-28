@@ -9,7 +9,7 @@ var productDetail = [];
 exports.getAll = (req, res) => {
     const catalogs = Catalog.fetchAll_cata();
     const products = Product.fetchAll();
-    res.render('shop', {catalogs:catalogs, products:products})
+    res.render('shop', { catalogs: catalogs, products: products })
 }
 exports.getIdCatalog = (req, res) => {
     const catalogs = Catalog.fetchAll_cata();

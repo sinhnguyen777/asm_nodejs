@@ -5,6 +5,12 @@
 */
 
 
+/* dume */
+
+
+/* aks,jbcnascb */
+
+
 /* BASE */
 
 
@@ -51,6 +57,7 @@ ul {
     margin: 0px;
     padding: 0px;
 }
+
 
 /* input {
     font-family: 'Raleway', sans-serif;
@@ -540,14 +547,21 @@ header .cart .quntity {
 }
 
 .recent-book-sec .item h3 {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 12px;
     font-weight: 300;
     margin-bottom: 10px;
 }
 
 .recent-book-sec .item h3 a {
     color: inherit;
+}
+
+.text1 {
+    width: 100%;
+    height: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .recent-book-sec .item h6 {
@@ -1028,26 +1042,61 @@ header .cart .quntity {
 }
 
 .catalog {
-    background: transparent;
+    width: calc(25% - 40px);
+    height: auto;
+    float: left;
+    background: #fcf0ac;
     /* border: 1px solid #ccc; */
     /* border-bottom: 1px solid #ccc; */
     border-left: 0;
     border-right: 0;
+    margin-right: 40px;
     margin-bottom: 50px;
     border-radius: 0;
     text-align: center;
 }
 
 .catalog h3 {
-    margin-bottom: 10px;
+    font-size: 30px !important;
+    font-weight: 500 !important;
+    margin-top: 20px !important;
+    margin-bottom: 30px !important;
+    text-transform: uppercase !important;
+    color: black !important;
 }
 
-.catalog button {
+.catalog .listctl {
+    margin-bottom: 150px;
+}
+
+.ctls {
+    float: left;
+    background: #ff9700;
+    opacity: 1;
+    color: #fff;
+    padding: 15px 20px 11px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    border: 2px solid #ff9700;
+    border-radius: 2px;
+}
+
+.ctls:hover {
+    background: #fff;
+    color: #ff9700;
+}
+
+.catalog .ctls {
     margin: 0px 10px;
     padding: 0px 10px;
 }
 
-.catalog button:hover {}
+.productshow {
+    width: 75%;
+    height: auto;
+    float: left;
+}
 
 .about-sec h1 {
     font-size: 30px;
