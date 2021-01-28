@@ -1,7 +1,7 @@
 //Use controller
 const home               = require('../controllers/home');
 const product            = require('../controllers/product');
-// const catalog            = require('../controllers/catalog');
+const user               = require('../controllers/user');
 const {render}           = require('ejs');
 const express            = require('express');
 const router             = express.Router();
@@ -10,5 +10,10 @@ const router             = express.Router();
 router.get('/', home.getIndex);
 router.get('/shop', product.getAll);
 router.get('/shop/catalog/:id', product.getIdCatalog);
+router.get('/product-detail/:id', product.getDetail);
+router.get('/login', user.getLogin);
+router.post('/login', user.actionLogin);
+router.get('/register', user.getRegistion);
+router.post('/register', user.getRegister);
 
 module.exports = router;

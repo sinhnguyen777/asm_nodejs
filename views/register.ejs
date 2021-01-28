@@ -11,31 +11,31 @@
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fiveLorem Ipsum is simply
                 dummy text of the printing and typesetting industry. Lorem </p>
             <div class="form">
-                <form action="" method="POST">
+                <form action="" method="POST" novalidate>
                     <div class="row ">
                         <div class="col-md-12 d-flex justify-content-center">
                             <div class="col-md-4 p-0 m-2">
-                                <input type="text" placeholder="Enter User Name" required>
+                                <input type="text" name="user_name" placeholder="Enter User Name" required>
                                 <span class="required-star">*</span>
                             </div>
                             <div class="col-md-4 p-0 m-2">
-                                <input type="email" placeholder="Email" required>
+                                <input type="email" name="user_email" placeholder="Email" required>
                                 <span class="required-star">*</span>
                             </div>
                         </div>
                         <div class="col-md-12 d-flex justify-content-center">
                             <div class="col-md-4 p-0 m-2">
-                                <input type="password" placeholder="Password" required>
+                                <input type="password" name="user_pass" placeholder="Password" required>
                                 <span class="required-star">*</span>
                             </div>
                             <div class="col-md-4 p-0 m-2">
-                                <input type="password" placeholder="Repeat Password" required>
+                                <input type="password" name="user_repeat" placeholder="Repeat Password" required>
                                 <span class="required-star">*</span>
                             </div>
                         </div>
                         <div class="col-md-12 d-flex justify-content-around">
                             <div class="col-md-8 d-flex justify-content-center">
-                                <button class="btn black">Register</button>
+                                <button type="submit" class="btn black">Register</button>
                                 <h5>not Registered? <a href="/login">Login here</a></h5>
                             </div>
                         </div>

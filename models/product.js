@@ -27,15 +27,15 @@ module.exports = class Product {
         });
         return products;
     }
-            
-                //show sản phẩm chi tiết
-                // static findById(id) {
-                //     // let productId = req.params.productId;
-                //     let sql = `SELECT * FROM product where id=${id}`;
-                //     db.query(sql, function(err, data) {
-                //         if (err) throw err;
-                //         products=data;
-                //     });
-                //     return products;
-                // }
+    
+    //show sản phẩm chi tiết
+    static findById(idPro) {
+        // let productId = req.params.id;
+        let sql = `SELECT * FROM product where id=${idPro}`;
+        db.query(sql, function(err, data) {
+            if (err) throw err;
+            productDetail=data;
+        });
+        return productDetail;
+    }
 }

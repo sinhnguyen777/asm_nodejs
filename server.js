@@ -5,12 +5,21 @@ const fileUpload = require('express-fileupload');
 var mysql        = require('mysql');
 var mysql2        = require('mysql2');
 const Sequelize = require('sequelize');
+const cookieSession = require('cookie-session');
+var bcrypt = require('bcrypt');
 const { Router } = require('express');
 const app        = express();
 const port       = 3000;
 
+
 app.use(fileUpload());
 app.use(bodyParser.urlencoded());
+
+app.use(cookieSession({
+    name: 'session',
+    keys: ['key1', 'key2'],
+    maxAge: 3600 * 1000
+}))
 
 //Khai bao va su dung template ejs
 app.set("view engine", "ejs");
