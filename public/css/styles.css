@@ -5,12 +5,6 @@
 */
 
 
-/* dume */
-
-
-/* aks,jbcnascb */
-
-
 /* BASE */
 
 
@@ -1041,61 +1035,38 @@ header .cart .quntity {
     font-weight: 300;
 }
 
-.catalog {
-    width: calc(25% - 40px);
-    height: auto;
+.catalog-product {
     float: left;
-    background: #fcf0ac;
-    /* border: 1px solid #ccc; */
-    /* border-bottom: 1px solid #ccc; */
-    border-left: 0;
-    border-right: 0;
-    margin-right: 40px;
-    margin-bottom: 50px;
-    border-radius: 0;
-    text-align: center;
 }
 
-.catalog h3 {
-    font-size: 30px !important;
-    font-weight: 500 !important;
-    margin-top: 20px !important;
-    margin-bottom: 30px !important;
-    text-transform: uppercase !important;
-    color: black !important;
+.catalog-product .title-listcata{
+    width: 100%;
+    border-radius: 3px;
+    padding: 10px;
 }
 
-.catalog .listctl {
-    margin-bottom: 150px;
-}
-
-.ctls {
-    float: left;
-    background: #ff9700;
-    opacity: 1;
+.catalog-product .title-listcata h3 {
+    margin: 0;
     color: #fff;
-    padding: 15px 20px 11px;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.4px;
-    border: 2px solid #ff9700;
-    border-radius: 2px;
 }
 
-.ctls:hover {
-    background: #fff;
-    color: #ff9700;
+.catalog-product ul{
+    padding: 0 10px 0 10px;
+} 
+
+.catalog-product ul li{
+    border-bottom: 1px #ccc solid;
+    padding: 10px 0 10px 10px;
 }
 
-.catalog .ctls {
-    margin: 0px 10px;
-    padding: 0px 10px;
+.catalog-product ul a{
+    text-decoration: none;
+    color: rgb(29, 28, 28);
 }
 
 .productshow {
-    width: 75%;
     height: auto;
-    float: left;
+    float: right;
 }
 
 .about-sec h1 {
