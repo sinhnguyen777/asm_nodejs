@@ -35,9 +35,9 @@ exports.getRegister = (req, res) => {
 exports.actionLogin = (req, res) => {
     //check lỗi -> validation_result
     //đọc form
-    const {user_email, user_pass} = res.body
+    const {user_name, user_pass} = req.body
     //Nếu validation ko lỗi
-    User.findAll({where:{user_email:user_email}}).then(result => {
+    User.findAll({where:{user_name:user_name}}).then(result => {
         if (result.length > 0) {
             bcrypt.compare(user_pass, result[0].user_pass).then(compare_result => {
                 if (compare_result === true) {
@@ -57,5 +57,5 @@ exports.actionLogin = (req, res) => {
         //Xuất lỗi 
         if (err) throw err;
     })
-    res.render('login');
+    // res.render('login');
 }

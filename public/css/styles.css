@@ -53,10 +53,10 @@ ul {
 }
 
 
-/* input {
+input {
     font-family: 'Raleway', sans-serif;
     outline: none;
-} */
+}
 
 textarea {
     font-family: 'Raleway', sans-serif;
@@ -355,6 +355,7 @@ header .cart .quntity {
 .recomended-sec .item img {
     margin-bottom: 15px;
     max-width: 100%;
+    height: 290px;
 }
 
 .recomended-sec .item h3 {
@@ -533,6 +534,7 @@ header .cart .quntity {
 .recent-book-sec .item img {
     margin-bottom: 15px;
     max-width: 100%;
+    height: 290px;
     cursor: pointer;
 }
 
@@ -751,7 +753,7 @@ header .cart .quntity {
     background: #cdcdcd;
     border-radius: 50%;
     margin: 0 5px;
-    trnsition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .testimonial-sec button.owl-dot.active {
@@ -1015,24 +1017,33 @@ header .cart .quntity {
 }
 
 .breadcrumb {
-    background: transparent;
+    background-image: url('../images/bg-top-cp.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     border: 1px solid #ccc;
     border-left: 0;
     border-right: 0;
-    margin-bottom: 50px;
     border-radius: 0;
+    height: 170px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
 }
 
 .breadcrumb a {
-    font-weight: 200;
-    color: #000;
-    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 30px;
 }
 
 .breadcrumb .breadcrumb-item.active {
-    color: #000;
-    font-size: 14px;
-    font-weight: 300;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+}
+.breadcrumb .breadcrumb-item.active::before{
+    color: #fff;
 }
 
 .catalog-product {
@@ -1286,6 +1297,7 @@ header .cart .quntity {
 
 .product-sec {
     margin-bottom: 100px;
+    padding-top: 30px;
 }
 
 .product-sec h1 {
@@ -1356,7 +1368,7 @@ header .cart .quntity {
 .product-sec .slider-content ul {
     list-style: none;
     width: 320px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     float: left;
 }
 
@@ -1397,6 +1409,10 @@ header .cart .quntity {
     font-weight: 600;
     font-style: italic;
     font-size: 14px;
+}
+
+.product-sec .slider-content ul li .row-rating {
+    float: left;
 }
 
 .product-sec .btn-sec {

@@ -8,7 +8,7 @@
     <section class="product-sec">
         <div class="container">
             <% for(let pr of productDetail) { %> 
-            <h1><%= pr.name %> </h1>
+            
             <div class="row">
                 <div class="col-md-6 slider-sec">
                     <!-- main slider carousel -->
@@ -29,7 +29,7 @@
                         <ul class="carousel-indicators list-inline">
                             <li class="list-inline-item active">
                                 <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
-                                    <img src="/images/product1.jpg" class="img-fluid">
+                                    <img src="/images/<%= pr.imgone %> " class="img-fluid">
                                 </a>
                             </li>
                             <li class="list-inline-item">
@@ -47,22 +47,23 @@
                     <!--/main slider carousel-->
                 </div>
                 <div class="col-md-6 slider-content">
+                    <h3><%= pr.name %> </h3>
                     <p class="detail"><%= pr.detail %> </p>
-                    <p class="author"><span>Author: </span>Phạm Đình Thuận</p>
+                    <p class="author"><span>Author: </span><%= pr.author %> </p>
                     <ul>
-                        <li>
+                        <!-- <li>
                             <span class="name">Digital List Price</span><span class="clm">:</span>
                             <span class="price">$4.71</span>
-                        </li>
+                        </li> -->
                         <li>
                             <span class="name">Print List Price</span><span class="clm">:</span>
                             <span class="price">$10.99</span>
                         </li>
                         <li>
                             <span class="name">Kindle Price</span><span class="clm">:</span>
-                            <span class="price final">$3.37</span>
+                            <span class="price final">$<%= pr.price %> </span>
                         </li>
-                        <li><span class="save-cost">Save $7.62 (69%)</span></li>
+                        <!-- <li><span class="save-cost">Save $7.62 (69%)</span></li> -->
                         <li>
                             <label for="title">Rating:</label>
                         </li>

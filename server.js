@@ -11,8 +11,9 @@ const { Router } = require('express');
 const app        = express();
 const port       = 3000;
 
-
+app.use(express.json());
 app.use(fileUpload());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
 app.use(cookieSession({
