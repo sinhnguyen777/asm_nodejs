@@ -11,11 +11,11 @@ exports.getRegistion = (req, res) => {
     res.render('register');
 }
 
-exports.getRegister = (req, res) => {
+exports.getRegister = (req, res, next) => {
     //check lỗi -> validation_result
     //đọc form
     const {user_name, user_email, user_pass} = req.body;
-    bcrypt.hash(user_pass, 12).then((hash_pass) => {
+    bcrypt.hash(user_pass, 10).then((hash_pass) => {
         //INSERTING USER INTO DATABASE
         const user = new User({user_name:user_name, user_email:user_email, user_pass:hash_pass});
         user
@@ -28,7 +28,6 @@ exports.getRegister = (req, res) => {
             //xuất lỗi
             if(err) throw err;
         })
-        res.render('register');
     })
 }
 
@@ -37,13 +36,17 @@ exports.actionLogin = (req, res) => {
     //đọc form
     const {user_name, user_pass} = req.body
     //Nếu validation ko lỗi
-    User.findAll({where:{user_name:user_name}}).then(result => {
+    User.findAll({where:{user_name:user_name}})
+    .then(result => {
+        // req.session.isLoggedIn = true
+        // req.session.userID = result[0].user_id
+        // res.redirect('/');
         if (result.length > 0) {
             bcrypt.compare(user_pass, result[0].user_pass).then(compare_result => {
                 if (compare_result === true) {
                     req.session.isLoggedIn = true;
                     req.session.userID = result[0].user_id
-                    res.redirect('/product');
+                    res.render('/product');
                 } else {
                     console.log('fail !!!')
                     res.render('login', {
@@ -57,5 +60,4 @@ exports.actionLogin = (req, res) => {
         //Xuất lỗi 
         if (err) throw err;
     })
-    // res.render('login');
 }
