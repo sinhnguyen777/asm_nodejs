@@ -38,23 +38,23 @@ exports.actionLogin = (req, res) => {
     //Nếu validation ko lỗi
     User.findAll({where:{user_name:user_name}})
     .then(result => {
-        // req.session.isLoggedIn = true
-        // req.session.userID = result[0].user_id
-        // res.redirect('/');
-        if (result.length > 0) {
-            bcrypt.compare(user_pass, result[0].user_pass).then(compare_result => {
-                if (compare_result === true) {
-                    req.session.isLoggedIn = true;
-                    req.session.userID = result[0].user_id
-                    res.render('/product');
-                } else {
-                    console.log('fail !!!')
-                    res.render('login', {
-                        login_errors:['Invalid Password']
-                    })
-                }
-            })
-        }
+        req.session.isLoggedIn = true
+        req.session.userID = result[0].user_id
+        res.render('/product');
+        // if (result.length > 0) {
+        //     bcrypt.compare(user_pass, result[0].user_pass).then(compare_result => {
+        //         if (compare_result === true) {
+        //             req.session.isLoggedIn = true;
+        //             req.session.userID = result[0].user_id
+        //             res.render('/product');
+        //         } else {
+        //             console.log('fail !!!')
+        //             res.render('login', {
+        //                 login_errors:['Invalid Password']
+        //             })
+        //         }
+        //     })
+        // }
     })
     .catch(err => {
         //Xuất lỗi 

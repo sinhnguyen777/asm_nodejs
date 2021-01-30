@@ -4,6 +4,7 @@ var products = [];
 var catalogs = [];
 var cate = [];
 var productDetail = [];
+var comment = [];
 
 module.exports = class Product {
 
@@ -37,5 +38,14 @@ module.exports = class Product {
             productDetail=data;
         });
         return productDetail;
+    }
+    //comment
+    static findComment(cmt, productId) {
+        let sql = `INSERT INTO comment (content, id_product, id_user) VALUES ('${cmt}', '${productId}', '1')`;
+        db.query(sql, function(err, data) {
+            if (err) throw err;
+            comment=data;
+        });
+        return comment;
     }
 }

@@ -5,6 +5,7 @@ const Product = require('../models/product');
 var catalogs = [];
 var products = [];
 var productDetail = [];
+var comment = [];
 
 exports.getAll = (req, res) => {
     const catalogs = Catalog.fetchAll_cata();
@@ -22,3 +23,12 @@ exports.getDetail = (req, res) => {
     var productDetail = Product.findById(idPro);
     res.render('product-detail', {productDetail:productDetail})
 }
+
+exports.getComment = (req, res) => {
+    var productId = req.params.idcmt;
+    
+    var cmt = req.body.message;
+    var comment = Product.findComment(cmt, productId);
+    res.render('product-detail', {products:products, comment:comment})
+}
+
