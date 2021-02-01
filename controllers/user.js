@@ -1,13 +1,11 @@
 const User = require('../models/user')
 const bcrypt = require('bcrypt');
-
+// const bcrypt = require('bcryptjs');
 
 exports.getLogin = (req, res) => {
-    //đọc database
     res.render('login');
 }
 exports.getRegistion = (req, res) => {
-    //đọc database
     res.render('register');
 }
 
@@ -16,6 +14,7 @@ exports.getRegister = (req, res, next) => {
     //đọc form
     const {user_name, user_email, user_pass} = req.body;
     bcrypt.hash(user_pass, 10).then((hash_pass) => {
+        console.log(hash_pass);
         //INSERTING USER INTO DATABASE
         const user = new User({user_name:user_name, user_email:user_email, user_pass:hash_pass});
         user
@@ -38,23 +37,23 @@ exports.actionLogin = (req, res) => {
     //Nếu validation ko lỗi
     User.findAll({where:{user_name:user_name}})
     .then(result => {
-        req.session.isLoggedIn = true
-        req.session.userID = result[0].user_id
-        res.render('/product');
-        // if (result.length > 0) {
-        //     bcrypt.compare(user_pass, result[0].user_pass).then(compare_result => {
-        //         if (compare_result === true) {
-        //             req.session.isLoggedIn = true;
-        //             req.session.userID = result[0].user_id
-        //             res.render('/product');
-        //         } else {
-        //             console.log('fail !!!')
-        //             res.render('login', {
-        //                 login_errors:['Invalid Password']
-        //             })
-        //         }
-        //     })
-        // }
+        if (result.length > 0) {
+            // console.log('test:');
+            // console.log(result[0].user_pass)
+            // bcrypt.hash(user_pass, 10).then((hash_pass) => {console.log(hash_pass)})
+            bcrypt.compare(user_pass, result[0].user_pass).then(compare_result => {
+                if (compare_result === true) {
+                    req.session.isLoggedIn = true;
+                    req.session.userID = result[0].user_id
+                    res.render('home');
+                } else {
+                    console.log('fail !!!')
+                    res.render('login', {
+                        login_errors:['Invalid Password']
+                    })
+                }
+            })
+        }
     })
     .catch(err => {
         //Xuất lỗi 
