@@ -11,7 +11,7 @@ router.get('/', home.getIndex);
 router.get('/shop', product.getAll);
 router.get('/shop/catalog/:id', product.getIdCatalog);
 router.get('/product-detail/:id', product.getDetail);
-router.post('/product-detail/:idcmt', product.getComment);
+router.post('/product-detail', product.getComment);
 router.get('/login', user.getLogin);
 router.post('/login', user.actionLogin);
 router.get('/register', user.getRegistion);

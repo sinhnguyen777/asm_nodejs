@@ -1,4 +1,5 @@
 const User = require('../models/user')
+const Product = require('../models/product')
 const bcrypt = require('bcrypt');
 // const bcrypt = require('bcryptjs');
 
@@ -33,19 +34,18 @@ exports.getRegister = (req, res, next) => {
 exports.actionLogin = (req, res) => {
     //check lỗi -> validation_result
     //đọc form
+    var idPro = req.params.id;
+    var productDetail = Product.findById(idPro);
     const {user_name, user_pass} = req.body
     //Nếu validation ko lỗi
     User.findAll({where:{user_name:user_name}})
     .then(result => {
         if (result.length > 0) {
-            // console.log('test:');
-            // console.log(result[0].user_pass)
-            // bcrypt.hash(user_pass, 10).then((hash_pass) => {console.log(hash_pass)})
             bcrypt.compare(user_pass, result[0].user_pass).then(compare_result => {
                 if (compare_result === true) {
                     req.session.isLoggedIn = true;
                     req.session.userID = result[0].user_id
-                    res.render('home');
+                    res.render('product-detail', productDetail);
                 } else {
                     console.log('fail !!!')
                     res.render('login', {
