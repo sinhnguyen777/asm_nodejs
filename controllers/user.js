@@ -45,7 +45,7 @@ exports.actionLogin = (req, res) => {
                 if (compare_result === true) {
                     req.session.isLoggedIn = true;
                     req.session.userID = result[0].user_id
-                    res.render('product-detail', productDetail);
+                    res.render('admin/view/index');
                 } else {
                     console.log('fail !!!')
                     res.render('login', {

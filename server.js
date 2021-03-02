@@ -29,8 +29,10 @@ app.use(express.static("public"));
 
 //router
 const routerSite = require('./router/site');
-app.use('/', routerSite);
+const routerblog = require('./router/blog');
 
+app.use('/', routerSite);
+app.use('/', routerblog);
 
 app.listen(port, ()=>{
     console.log(`ung dung dang chay voi port: ${port}`);

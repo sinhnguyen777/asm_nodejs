@@ -40,12 +40,12 @@ module.exports = class Product {
         return productDetail;
     }
     //comment
-    static findComment(cmt, productId, id_user) {
-        let sql = `INSERT INTO comment (content, id_product, id_user) VALUES ('${cmt}', '${productId}', '${id_user}')`;
-        db.query(sql, function(err, data) {
-            if (err) throw err;
-            comment=data;
-        });
-        return comment;
-    }
+    // static findComment(cmt, productId, id_user) {
+    //     let sql = `INSERT INTO comment (content, id_product, id_user) VALUES ('${cmt}', '${productId}', '${id_user}')`;
+    //     db.query(sql, function(err, data) {
+    //         if (err) throw err;
+    //         comment=data;
+    //     });
+    //     return comment;
+    // }
 }
