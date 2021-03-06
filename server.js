@@ -27,13 +27,29 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 app.use(express.static("public"));
 
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
+
+const sequelize = require('./util/database');
 //router
 const routerSite = require('./router/site');
 const routerblog = require('./router/blog');
 
 app.use('/', routerSite);
 app.use('/', routerblog);
-
-app.listen(port, ()=>{
-    console.log(`ung dung dang chay voi port: ${port}`);
-});
+sequelize
+    .sync()
+    .then(result => {
+        // console.log(result);
+        app.listen(port, () => {
+            console.log(`ứng dụng đang chạy với port: ${port}`);
+        })
+    })
+    .catch(err => {
+        console.log(err);
+    });

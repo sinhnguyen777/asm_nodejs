@@ -15,6 +15,7 @@ module.exports = class Product {
             if (err) throw err;
             products = data;
         });
+        console.log(db);
         return products;
     }
 

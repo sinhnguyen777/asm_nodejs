@@ -6,8 +6,6 @@ var products = [];
 
 
 exports.getAll = (req, res) => {
-
-
     const products = Product.fetchProductCata();
 
     res.render('shop', { products:products})

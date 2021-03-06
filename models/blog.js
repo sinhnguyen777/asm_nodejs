@@ -24,17 +24,17 @@ module.exports = class Post {
         await db.query('insert into tblposts SET ?',newPost, function(err, data) {
             if (err) throw err;
             posts=data;
-            console.log(posts);
+            // console.log(posts);
         })
     }
     
-    // //xoa bài viết theo mã
-    // static delPost(id) {
-    // db.query(`delete from tblPost where postId= ${id}`, function(err, data) {
-    // if (err) throw err;
-    // return true;
-    // })
-    // }
+    //xoa bài viết theo mã
+    static delPost(id) {
+        db.query(`delete from tblPost where postId= ${id}`, function(err, data) {
+            if (err) throw err;
+            posts=data;
+        })
+    }
 }
 
 
